@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './segment-list.html',
   styleUrl: './segment-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class SegmentList {
   @Input() segments: AppModel.SegmentWithSignal[] = [];

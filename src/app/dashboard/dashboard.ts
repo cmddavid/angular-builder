@@ -9,6 +9,7 @@ import { Segment } from '../segment/segment';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class Dashboard {
   segments: AppModel.SegmentWithSignal[] = this.convertToSignals([

@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './segment.html',
   styleUrl: './segment.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class Segment {
   @Input() segment!: AppModel.SegmentWithSignal;
