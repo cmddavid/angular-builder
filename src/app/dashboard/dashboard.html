@@ -1,0 +1,10 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <app-segment-list [segments]="this.segments"></app-segment-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    @for (segment of this.segments; track $index) {
+        <app-segment [segment]="segment"></app-segment>
+    }
+  </mat-sidenav-content>
+</mat-sidenav-container>

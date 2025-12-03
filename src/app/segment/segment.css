@@ -1,0 +1,12 @@
+:host {
+    display: block;
+    margin: 16px;
+}
+
+.example-full-width {
+    display: block;
+}
+
+.example-form {
+    padding-top: 16px;
+}
