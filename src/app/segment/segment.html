@@ -7,14 +7,17 @@
       <mat-form-field class="example-full-width">
         <mat-label>Title</mat-label>
         <input matInput [field]="segmentForm.title" />
-          @for (error of segmentForm.title().errors(); track error) {
-            <mat-error>{{ error.message }}</mat-error>
-          }
+        @for (error of segmentForm.title().errors(); track error) {
+          <mat-error>{{ error.message }}</mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <mat-label>Description</mat-label>
         <textarea matInput [field]="segmentForm.description"></textarea>
+        @for (error of segmentForm.description().errors(); track error) {
+          <mat-error>{{ error.message }}</mat-error>
+        }
       </mat-form-field>
       @for (element of segment().elements; track $index) {
         <section>
@@ -23,8 +26,9 @@
       }
     </form>
   </mat-card-content>
-  <mat-card-actions>
-    <button matButton>LIKE</button>
-    <button matButton>SHARE</button>
-  </mat-card-actions>
+  <mat-card-footer>
+    <mat-card-actions>
+      <button matButton (click)="this.submitForm()" [disabled]="segmentForm().invalid()">Save</button>
+    </mat-card-actions>
+  </mat-card-footer>
 </mat-card>
