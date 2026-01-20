@@ -1,18 +1,26 @@
 <mat-card class="example-card" appearance="outlined">
   <mat-card-header>
-    <mat-card-title>{{ segment.formData.title() }}</mat-card-title>
+    <mat-card-title>{{ segment().formData().title }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label>Title</mat-label>
-        <input matInput [value]="segment.formData.title()" (input)="onTitleChange($event)" />
+        <input matInput [field]="segmentForm.title" />
+          @for (error of segmentForm.title().errors(); track error) {
+            <mat-error>{{ error.message }}</mat-error>
+          }
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <mat-label>Description</mat-label>
-        <textarea matInput [value]="segment.formData.description()" (input)="onDescriptionChange($event)"></textarea>
+        <textarea matInput [field]="segmentForm.description"></textarea>
       </mat-form-field>
+      @for (element of segment().elements; track $index) {
+        <section>
+          <app-element [element]="element"></app-element>
+        </section>
+      }
     </form>
   </mat-card-content>
   <mat-card-actions>

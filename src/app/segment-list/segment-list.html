@@ -2,7 +2,7 @@
   @for (segment of segments; track $index) {
     <mat-list-item role="listitem" class="draggable" cdkDrag>
         <mat-icon matListItemIcon>drag_handle</mat-icon>
-        <div matListItemTitle>{{segment.formData.title()}} ({{segment.formData.description().length}})</div>
+        <div matListItemTitle>{{segment.formData().title}} ({{segment.formData().description.length}})</div>
     </mat-list-item>
   }
 </mat-list>

@@ -58,16 +58,10 @@ export class Dashboard {
   convertToSignals(segments: AppModel.Segment[]): AppModel.SegmentWithSignal[] {
     return segments.map(segment => ({
       ...segment,
-      formData: {
-        title: signal(segment.formData.title),
-        description: signal(segment.formData.description),
-      },
+      formData: signal(segment.formData),
       elements: segment.elements.map(element => ({
         ...element,
-        formData: {
-          title: signal(segment.formData.title),
-          description: signal(segment.formData.description),
-        },
+        formData: signal(element.formData),
       })),
     }));
   }
